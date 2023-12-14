@@ -1,4 +1,6 @@
 package bancario;
+import users.User;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,6 @@ public class Banco {
     }
 
     public Conta acessarConta(Scanner scanner) {
-
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         System.out.print("Digite o número da sua conta (xxxxx-x): ");
         String numeroConta = scanner.nextLine();
@@ -28,7 +29,26 @@ public class Banco {
         return null;
     }
 
-    public void adicionarConta(Conta conta) {
+    public void criarConta(Scanner scanner) {
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.print("Digite o seu nome: ");
+        String nome = scanner.nextLine();
+        System.out.println("Digite sua idade: ");
+        byte idade = scanner.nextByte();
+        System.out.print("Digite o seu sexo [M/F]: ");
+        char sexo = scanner.next().charAt(0);
+        System.out.print("Digite o seu CPF: ");
+        String cpf = scanner.next();
+        System.out.println("Digite o seu RG: ");
+        String rg = scanner.next();
+
+        User user = new User(nome, idade, sexo, cpf, rg);
+        Conta conta = new Conta(user);
+
+        adicionarConta(conta);
+    }
+
+    private void adicionarConta(Conta conta) {
         List listaContas = getContas();
         listaContas.add(conta);
 
