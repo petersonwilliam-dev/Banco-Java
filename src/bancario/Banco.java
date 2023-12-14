@@ -1,11 +1,31 @@
 package bancario;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 public class Banco {
     private List<Conta> contas;
 
     public Banco() {
-        this.contas = new ArrayList<>();
+        setContas(new ArrayList<>());
+    }
+
+    public Conta acessarConta(Scanner scanner) {
+
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.print("Digite o número da sua conta (xxxxx-x): ");
+        String numeroConta = scanner.nextLine();
+        System.out.print("Digite o número da sua agência (xxx-x): ");
+        String numeroAgencia = scanner.nextLine();
+
+        for (Conta c : getContas()) {
+            if (c.getNumeroConta().equals(numeroConta) && c.getNumeroAgencia().equals(numeroAgencia)) {
+                System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                System.out.println("Bem vindo, "+c.getUsuario().getNome());
+                return c;
+            }
+        }
+
+        return null;
     }
 
     public void adicionarConta(Conta conta) {
