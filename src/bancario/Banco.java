@@ -7,7 +7,7 @@ public class Banco {
     public Banco() {
         this.contas = new ArrayList<>();
     }
-    
+
     public List<Conta> getContas() {
         return contas;
     }
