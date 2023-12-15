@@ -27,6 +27,18 @@ public class Conta {
         }
     }
 
+    public void exibiDados() {
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.println("Nome de usuário: "+getUsuario().getNome());
+        System.out.println("Idade: "+getUsuario().getIdade());
+        System.out.println("Sexo: "+getUsuario().getSexo());
+        System.out.println("CPF: "+getUsuario().getCpf());
+        System.out.println("RG: "+getUsuario().getRg());
+        System.out.println("N° conta: "+getNumeroConta());
+        System.out.println("N° agência: "+getNumeroAgencia());
+        System.out.println("Saldo: "+getSaldoConta());
+    }
+
     private String gerarNumeroConta() {
         Random rand = new Random();
 

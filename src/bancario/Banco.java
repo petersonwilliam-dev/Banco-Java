@@ -11,12 +11,14 @@ public class Banco {
         setContas(new ArrayList<>());
     }
 
-    public Conta acessarConta(Scanner scanner) {
+    public Conta acessarConta() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         System.out.print("Digite o número da sua conta (xxxxx-x): ");
-        String numeroConta = scanner.nextLine();
+        String numeroConta = scanner.next();
         System.out.print("Digite o número da sua agência (xxx-x): ");
-        String numeroAgencia = scanner.nextLine();
+        String numeroAgencia = scanner.next();
 
         for (Conta c : getContas()) {
             if (c.getNumeroConta().equals(numeroConta) && c.getNumeroAgencia().equals(numeroAgencia)) {
@@ -26,20 +28,23 @@ public class Banco {
             }
         }
 
+        System.err.println("CREDENCIAIS INVÁLIDAS!");
         return null;
     }
 
-    public void criarConta(Scanner scanner) {
+    public void criarConta() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         System.out.print("Digite o seu nome: ");
         String nome = scanner.nextLine();
-        System.out.println("Digite sua idade: ");
+        System.out.print("Digite sua idade: ");
         byte idade = scanner.nextByte();
         System.out.print("Digite o seu sexo [M/F]: ");
         char sexo = scanner.next().charAt(0);
         System.out.print("Digite o seu CPF: ");
         String cpf = scanner.next();
-        System.out.println("Digite o seu RG: ");
+        System.out.print("Digite o seu RG: ");
         String rg = scanner.next();
 
         User user = new User(nome, idade, sexo, cpf, rg);
